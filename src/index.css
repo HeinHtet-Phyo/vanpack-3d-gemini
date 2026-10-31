@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Big Shoulders Stencil Display", Impact, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-handwritten: "Caveat", "Segoe Print", cursive;
+
+  --color-paper: #F4EFE6;
+  --color-paper-alt: #EBE3D5;
+  --color-kraft: #C8A26B;
+  --color-kraft-dark: #9C7444;
+  --color-ink: #1B1A17;
+  --color-hivis: #F2D21B;
+  --color-stamp-red: #C2362B;
+  --color-stamp-green: #2F6B3A;
+}
+
+/* Subtle paper grain overlay using SVG fractalNoise data URI */
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  background-color: #F4EFE6;
+  color: #1B1A17;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, .font-stencil {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.tabular-nums, .font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Visible accessible keyboard focus (3px yellow outline) */
+*:focus-visible {
+  outline: 3px solid #F2D21B !important;
+  outline-offset: 2px;
+}
+
+/* Primary action button hard offset shadow */
+.btn-hivis {
+  background-color: #F2D21B;
+  color: #1B1A17;
+  border: 2px solid #1B1A17;
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 #1B1A17;
+  transition: transform 80ms ease, box-shadow 80ms ease, background-color 80ms ease;
+}
+
+.btn-hivis:hover:not(:disabled) {
+  background-color: #fae03c;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #1B1A17;
+}
+
+.btn-hivis:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #1B1A17;
+}
+
+.btn-hivis:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 0 #1B1A17;
+}
+
+/* Secondary manifest button */
+.btn-manifest {
+  background-color: #F4EFE6;
+  color: #1B1A17;
+  border: 2px solid #1B1A17;
+  border-radius: 2px;
+  transition: background-color 80ms ease;
+}
+
+.btn-manifest:hover:not(:disabled) {
+  background-color: #C8A26B;
+}
+
+/* Manifest sheet panel */
+.manifest-sheet {
+  background-color: #FAF6EE;
+  border: 2px solid #1B1A17;
+  border-radius: 2px;
+}
+
+.manifest-ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    rgba(27, 26, 23, 0.08) 31px,
+    rgba(27, 26, 23, 0.08) 32px
+  );
+}
+
+/* Brown packing tape strip divider */
+.packing-tape {
+  background-color: #9C7444;
+  border-top: 2px solid #1B1A17;
+  border-bottom: 2px solid #1B1A17;
+  color: #F4EFE6;
+  transform: rotate(-0.85deg);
+}
+
+/* Rubber stamp distressed ink effect */
+.rubber-stamp {
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 2px;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='rough'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.12' numOctaves='2' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='2.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='black' filter='url(%23rough)'/%3E%3C/svg%3E");
+}
+
+.stamp-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+.stamp-pass {
+  background-color: rgba(47, 107, 58, 0.14);
+  border-color: #2F6B3A;
+  color: #2F6B3A;
+}
+
+.stamp-fail {
+  background-color: rgba(194, 54, 43, 0.14);
+  border-color: #C2362B;
+  color: #C2362B;
+}
+
+@keyframes stampThunk {
+  0% {
+    opacity: 0;
+    transform: scale(1.15) rotate(var(--stamp-rot, -2deg));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(var(--stamp-rot, -2deg));
+  }
+}
+
+.animate-stamp-thunk {
+  animation: stampThunk 120ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-stamp-thunk {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: rotate(var(--stamp-rot, -2deg)) !important;
+  }
+  .packing-tape {
+    transform: none;
+  }
+}
+
+/* Custom paper & ink scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EBE3D5;
+  border-left: 1px solid #1B1A17;
+}
+::-webkit-scrollbar-thumb {
+  background: #9C7444;
+  border: 1px solid #1B1A17;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1B1A17;
+}
+
+/* Clean print stylesheet for "Print manifest" button */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    background-image: none !important;
+    color: #000000 !important;
+  }
+  header,
+  .no-print,
+  button.no-print {
+    display: none !important;
+  }
+  .manifest-sheet {
+    background-color: #FFFFFF !important;
+    border-color: #000000 !important;
+    break-inside: avoid;
+  }
+  .packing-tape {
+    transform: none !important;
+    background-color: #EFEFEF !important;
+    color: #000000 !important;
+  }
+}

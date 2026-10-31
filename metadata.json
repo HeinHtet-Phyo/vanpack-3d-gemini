@@ -1,0 +1,6 @@
+{
+  "name": "VanPack 3D",
+  "description": "Deterministic 3D moving van calculator and load planner for London renters and students. Gemini proposes, code proves.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
