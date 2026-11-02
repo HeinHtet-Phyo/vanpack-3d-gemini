@@ -2,16 +2,26 @@
 
 # 🚚 VanPack 3D
 
+### 🏆 Top 5 of 40 Teams, Built Solo
+**Halloween at Imperial: Gemini Edition · Google DeepMind × Imperial College London · 31 October 2026**
+
+![Top 5 of 40](https://img.shields.io/badge/🏆_Top_5-of_40_teams-gold)
+![Solo build](https://img.shields.io/badge/Team-Solo-blue)
+![Google DeepMind](https://img.shields.io/badge/Google_DeepMind-Gemini_4_Argon-4285F4)
+![Imperial College London](https://img.shields.io/badge/Imperial_College-London-003E74)
+
 ### Which van do you need, and what will it really cost?
 
 **Snap your stuff → Gemini 4 Argon measures it → code proves it fits → see it loaded in 3D.**
 
-Built in one day at **Halloween at Imperial: Gemini Edition** (Google DeepMind × Imperial College London, 31 October 2026)
+Built solo in one day at **Halloween at Imperial: Gemini Edition** (Google DeepMind × Imperial College London, 31 October 2026)
 Track 2 · Multimodal & Human-Centric AI
 
-[🎬 Demo video](PASTE_YOUTUBE_LINK) · [🌐 Live app](PASTE_PUBLISHED_LINK)
+[🎬 Demo video](https://youtu.be/1lzJhFKEswg)
 
 </div>
+
+> 🏆 **Finished in the Top 5 out of 40 teams** at the Google DeepMind × Imperial College London Halloween hackathon, as a **solo builder** competing against teams of up to 4.
 
 ---
 
@@ -160,4 +170,4 @@ Open the local address shown in the terminal (usually http://localhost:3000).
 **Hein Htet Phyo**, BSc Data Science & AI (First Class Honours), UWE Bristol
 GitHub: [@HeinHtet-Phyo](https://github.com/HeinHtet-Phyo)
 
-*Built with Gemini 4 Argon and Google AI Studio at Halloween at Imperial: Gemini Edition.* 🎃
+*Built solo with Gemini 4 Argon and Google AI Studio at Halloween at Imperial: Gemini Edition. Top 5 of 40 teams.* 🎃
